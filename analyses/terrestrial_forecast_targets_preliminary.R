@@ -16,7 +16,7 @@ options(stringsAsFactors = FALSE)
 
 
 ## sd has Sensor Depths
-sensor_depth <-read.csv("inputs\\SWC_depths.csv")
+sensor_depth <-read.csv("inputs/SWC_depths.csv")
 
 # multiply negative depth values by -1 for easier math
 sensor_depth$sensorDepths <- sensor_depth$sensorDepths * -1
@@ -94,8 +94,8 @@ weighted_sensors
 sm <- loadByProduct(
   dpID = "DP1.00094.001",
   site = c("BART", "SRER", "KONZ", "OSBS"),
-  startdate = "2019-07",
-  enddate = "2019-08", check.size = FALSE
+  startdate = "2017-01",
+  enddate = "2020-06", check.size = FALSE
 )
 
 
@@ -200,8 +200,8 @@ zipsByProduct(
   dpID = c("DP4.00200.001"),
   package = "basic",
   site = c("BART", "KONZ", "SRER", "OSBS"),
-  startdate = "2019-06",
-  enddate = "2019-07",
+  startdate = "2016-01",
+  enddate = "2020-06",
   savepath = "inputs",
   check.size = FALSE
 )
@@ -309,5 +309,3 @@ target_daily_co2_flux<-daily.Co2.flux.target <-
 target_daily_h2o_flux<-daily.H2o.flux.target <-
   use.H2o[, c("siteID", "Year", "DOY", "daily.nsae.H2o")]
 
-## Do we want to calculate uncertainty in the daily flux values using the half hour observations?
-#- take the variance of the half hour obs, then take the square root?
